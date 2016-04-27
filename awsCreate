@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Create administrator user on IAM, save secret
+# Install aws cli on centos 7
+aws configure, enter secret, select us-east-1, select text
+# Create key pair
+aws ec2 create-key-pair --key-name keyPair --query 'KeyMaterial' --output text > keyPair.pem
+# Create security group
+aws ec2 create-security-group --group-name secNode --description "Node security group"
+# Set security group permissions
+aws ec2 authorize-security-group-ingress --group-name secNode --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name secNode --protocol tcp --port 80 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name secNode --protocol tcp --port 3000 --cidr 0.0.0.0/0
+# Run instance
+aws ec2 run-instances --image-id ami-6d1c2007 --count 1 --instance-type t2.micro --key-name keyPair --security-groups secNode
+# Get the public dns
+aws ec2 describe-instances --query "Reservations[].Instances[].PublicDnsName"
+# Ssh into machine using username centos and .pem file and dns
+# ssh -l centos -i awskey.pem ec2-54-174-160-48.compute-1.amazonaws.com
