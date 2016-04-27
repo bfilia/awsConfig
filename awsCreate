@@ -2,7 +2,14 @@
 
 # Create administrator user on IAM, save secret
 # Install aws cli on centos 7
-aws configure, enter secret, select us-east-1, select text
+#aws configure, enter secret, select us-east-1, select text
+yum install -y epel-release
+yum install -y awscli
+# Configure awscli
+echo "Input your administrator user credentials."
+echo "Input the region us-eat-1."
+echo "Input text for the fourth option."
+aws configure
 # Create key pair
 aws ec2 create-key-pair --key-name keyPair --query 'KeyMaterial' --output text > keyPair.pem
 # Create security group
