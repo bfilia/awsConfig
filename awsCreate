@@ -9,7 +9,7 @@ yum install -y epel-release
 yum install -y awscli
 # Configure awscli
 echo "Input your administrator user credentials."
-echo "Input the region us-eat-1."
+echo "Input the region us-east-1."
 echo "Input text for the fourth option."
 aws configure
 # Create key pair
@@ -26,7 +26,11 @@ aws ec2 authorize-security-group-ingress --group-name secNode --protocol tcp --p
 # Run instance
 echo "Spinning up the EC2 instance"
 aws ec2 run-instances --image-id ami-6d1c2007 --count 1 --instance-type t2.micro --key-name keyPair --security-groups secNode
+# Wait a bit for the instance to created
+echo "Waiting a little bit for the dns to be configured"
+sleep 10
 # Get the public dns
+echo ""
 echo "The public dns of your EC2 instance is:"
 aws ec2 describe-instances --query "Reservations[].Instances[].PublicDnsName"
 echo ""
@@ -35,3 +39,4 @@ echo "ssh -l centos -i keyPair.pem <EC2 dns>"
 echo ""
 echo "When logged in, run the following command:"
 echo "sudo -i; yum install -y git; git clone <repo>"
+echo "Please allow some time for the instance to be created first."
