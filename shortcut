@@ -1,6 +1,16 @@
 #!/bin/bash
 
+# This script bootstraps some basic steps for a new Centos 7 instance
+
+# Install git
+echo "Installing git"
 yum install -y git
+# Clone the Centos configuration repo
+echo "Cloning repo"
 git clone https://github.com/bfilia/centos7Config.git
+# Set permissions
+echo "Setting permissions"
 chmod +x centos7Config/osConfig
+# Running the osConfig script
+echo "Running osConfig"
 ./centos7Config/osConfig
