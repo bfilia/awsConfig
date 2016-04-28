@@ -51,6 +51,6 @@ echo "chmod +x /home/centos/shortcut"
 echo "/home/centos/shortcut"
 echo ""
 echo "Sleeping for a bit while the instance finishes creating"
-sleep 120
+sleep 90
 echo ""
 echo ""
