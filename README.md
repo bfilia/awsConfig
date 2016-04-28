@@ -41,4 +41,4 @@ This option will pull the containerized app and run it. Make sure you have docke
 </ol>
 <br/>
 <h4>REST API Application</h4>
-If you'd like to see the application in action, <a href="ec2-54-174-160-48.compute-1.amazonaws.com/explorer">click here</a>!
+If you'd like to see the application in action, head to http://ec2-54-174-160-48.compute-1.amazonaws.com/explorer
