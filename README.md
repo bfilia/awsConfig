@@ -18,7 +18,8 @@ This option will configure your system to create an EC2 instance, configure the 
 <b>Steps</b><br/>
 <ol>
   <li>Clone this repository using "git clone https://github.com/bfilia/awsConfig.git"</li>
-  <li>Run the script using "./awsConfig/awsCreate" (if it does not run, try using "chmod +x /awsConfig/awsCreate")</li>
+  <li>Change into the awsConfig directory using "cd awsConfig"</li>
+  <li>Run the script using "./awsCreate" (if it does not run, try using "chmod +x awsCreate")</li>
   <li>Follow the steps it provides and enjoy!</li>
   <li>The application will be accessible via the public dns of the instance. The UI is at /explorer</li>
 </ol>
