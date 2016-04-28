@@ -1,0 +1,6 @@
+#!/bin/bash
+
+yum install -y git
+git clone https://github.com/bfilia/centos7Config.git
+chmod +x centos7Config/osConfig
+./centos7Config/osConfig
