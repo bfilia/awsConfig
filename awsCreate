@@ -15,6 +15,9 @@ aws configure
 # Create key pair
 echo "Creating key pair"
 aws ec2 create-key-pair --key-name keyPair --query 'KeyMaterial' --output text > keyPair.pem
+# Change key pair permissions
+echo "Changing keyPair.pem's permissions"
+chmod 400 keyPair.pem
 # Create security group
 echo "Creating security group"
 aws ec2 create-security-group --group-name secNode --description "Node security group"
@@ -40,3 +43,4 @@ echo ""
 echo "When logged in, run the following command:"
 echo "sudo -i; yum install -y git; git clone <repo>"
 echo "Please allow some time for the instance to be created first."
+echo ""
